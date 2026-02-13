@@ -15,7 +15,6 @@ XHFramework 是一个模块化的 Unity 游戏客户端框架，采用 **AOT层�
 - **Newtonsoft.Json** — JSON 序列化
 
 ## 二、XHFramework目录结构
-├── XHFramework/                 # 框架入口 FW.cs、管理器基类 ManagerBase.cs  
 │   ├── XHFrameworkClient/       # unity客户端目录  
 │   ├── XHFrameworkOut/          # 输出文件目录（安装包、logs）    
 │   ├── XHFrameworkServer/       # 资源服务器  
