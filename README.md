@@ -697,10 +697,6 @@ public abstract class ScriptSingleton<T> where T : class, new()
 
 
 
-### 十一、框架下载下来之后，需要克隆配置工具项目，和资源服务器项目，并配置在框架内，才可以使用luban和proto配置功能和资源服务器（本地）功能
-XHFrameworkTool：https://github.com/XH-Unity/XHFrameworkTool  
-XHFrameworkServer：https://github.com/XH-Unity/XHFrameworkServer    
-
 另外还有基于GAS模式的Unity技能框架与节点节能编辑器，非常值得一看  
 
 XHFrameworkSkill：https://github.com/XH-Unity/XHFrameworkSkill
