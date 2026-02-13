@@ -1,0 +1,19 @@
+{
+    "name": "XHFramework.Boot",
+    "rootNamespace": "XHFramework.Boot",
+    "references": [
+        "GUID:e34a5702dd353724aa315fb8011f08c3",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
+        "GUID:13ba8ce62aa80c74598530029cb2d649",
+        "GUID:040a3ed940b07de47a0d3e841c2301af"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

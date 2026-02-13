@@ -1,0 +1,69 @@
+{
+  "dependencies": {
+
+    "com.github-glitchenzo.nugetforunity": "https://gitee.com/packagemirror/NuGetForUnity.git?path=/src/NuGetForUnity#v4.5.0",
+    "com.code-philosophy.hybridclr": "https://gitee.com/focus-creative-games/hybridclr_unity.git#v8.8.0",
+    "com.code-philosophy.luban": "https://gitee.com/focus-creative-games/luban_unity.git#v1.1.1",
+    "com.cysharp.unitask": "https://gitee.com/packagemirror/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask#2.5.10",
+    "com.coffee.ui-particle": "https://gitee.com/packagemirror/ParticleEffectForUGUI.git#4.11.4",
+    
+    "com.esotericsoftware.spine.spine-unity":"https://gitee.com/packagemirror/spine3.8.git",
+
+    "com.xframework.unity-logs-viewer": "https://gitee.com/packagemirror/unity-logs-viewer.git#v1.8.0", 
+    "com.xframework.dotween": "https://gitee.com/packagemirror/dotween-hotweenv2.git#v1.2.765", 
+    "com.xframework.superscrollview": "https://gitee.com/packagemirror/super-scroll-view.git#v2.5.5", 
+
+    "com.tuyoogame.yooasset": "2.3.17",
+    "com.unity.collab-proxy": "2.10.2",
+    "com.unity.feature.2d": "2.0.1",
+    "com.unity.ide.rider": "3.0.38",
+    "com.unity.ide.visualstudio": "2.0.22",
+    "com.unity.nuget.newtonsoft-json": "3.2.2",
+    "com.unity.render-pipelines.universal": "14.0.12",
+    "com.unity.test-framework": "1.1.33",
+    "com.unity.textmeshpro": "3.0.7",
+    "com.unity.timeline": "1.7.7",
+    "com.unity.ugui": "1.0.0",
+    "com.unity.visualscripting": "1.9.4",
+    "com.unity.modules.ai": "1.0.0",
+    "com.unity.modules.androidjni": "1.0.0",
+    "com.unity.modules.animation": "1.0.0",
+    "com.unity.modules.assetbundle": "1.0.0",
+    "com.unity.modules.audio": "1.0.0",
+    "com.unity.modules.cloth": "1.0.0",
+    "com.unity.modules.director": "1.0.0",
+    "com.unity.modules.imageconversion": "1.0.0",
+    "com.unity.modules.imgui": "1.0.0",
+    "com.unity.modules.jsonserialize": "1.0.0",
+    "com.unity.modules.particlesystem": "1.0.0",
+    "com.unity.modules.physics": "1.0.0",
+    "com.unity.modules.physics2d": "1.0.0",
+    "com.unity.modules.screencapture": "1.0.0",
+    "com.unity.modules.terrain": "1.0.0",
+    "com.unity.modules.terrainphysics": "1.0.0",
+    "com.unity.modules.tilemap": "1.0.0",
+    "com.unity.modules.ui": "1.0.0",
+    "com.unity.modules.uielements": "1.0.0",
+    "com.unity.modules.umbra": "1.0.0",
+    "com.unity.modules.unityanalytics": "1.0.0",
+    "com.unity.modules.unitywebrequest": "1.0.0",
+    "com.unity.modules.unitywebrequestassetbundle": "1.0.0",
+    "com.unity.modules.unitywebrequestaudio": "1.0.0",
+    "com.unity.modules.unitywebrequesttexture": "1.0.0",
+    "com.unity.modules.unitywebrequestwww": "1.0.0",
+    "com.unity.modules.vehicles": "1.0.0",
+    "com.unity.modules.video": "1.0.0",
+    "com.unity.modules.vr": "1.0.0",
+    "com.unity.modules.wind": "1.0.0",
+    "com.unity.modules.xr": "1.0.0"
+  },
+  "scopedRegistries": [
+    {
+      "name": "package.openupm.com",
+      "url": "https://package.openupm.com",
+      "scopes": [
+        "com.tuyoogame.yooasset"
+      ]
+    }
+  ]
+}

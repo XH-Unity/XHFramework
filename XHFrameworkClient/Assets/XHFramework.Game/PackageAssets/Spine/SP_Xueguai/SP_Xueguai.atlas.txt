@@ -1,0 +1,76 @@
+
+SP_Xueguai.png
+size: 512,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bian zi
+  rotate: false
+  xy: 408, 54
+  size: 82, 77
+  orig: 83, 77
+  offset: 1, 0
+  index: -1
+shen ti
+  rotate: true
+  xy: 139, 72
+  size: 155, 93
+  orig: 155, 93
+  offset: 0, 0
+  index: -1
+tou
+  rotate: true
+  xy: 2, 7
+  size: 220, 135
+  orig: 220, 135
+  offset: 0, 0
+  index: -1
+yi ling
+  rotate: false
+  xy: 139, 2
+  size: 201, 68
+  orig: 201, 68
+  offset: 0, 0
+  index: -1
+yinying
+  rotate: false
+  xy: 234, 92
+  size: 91, 39
+  orig: 93, 39
+  offset: 1, 0
+  index: -1
+you bi
+  rotate: false
+  xy: 234, 133
+  size: 96, 94
+  orig: 96, 94
+  offset: 0, 0
+  index: -1
+you shou
+  rotate: false
+  xy: 327, 88
+  size: 79, 43
+  orig: 79, 43
+  offset: 0, 0
+  index: -1
+you tui
+  rotate: true
+  xy: 401, 6
+  size: 46, 42
+  orig: 46, 42
+  offset: 0, 0
+  index: -1
+zuo shou
+  rotate: false
+  xy: 342, 133
+  size: 146, 94
+  orig: 146, 94
+  offset: 0, 0
+  index: -1
+zuo tui
+  rotate: false
+  xy: 342, 35
+  size: 57, 51
+  orig: 57, 51
+  offset: 0, 0
+  index: -1

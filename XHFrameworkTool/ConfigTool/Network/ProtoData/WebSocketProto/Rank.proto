@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+package Network;
+option csharp_namespace = "Network.Proto";
+
+import "WsCommon.proto";
+
+// 订阅排行榜
+message RankSubscribe {
+    int64 user_id = 1;
+    int32 rank_type = 2;      // 排行榜类型：0-等级榜, 1-战力榜, 2-竞技榜, 3-公会榜
+    int32 sub_type = 3;       // 子类型（如不同赛季）
+}
+
+// 取消订阅排行榜
+message RankUnsubscribe {
+    int64 user_id = 1;
+    int32 rank_type = 2;
+    int32 sub_type = 3;
+}
+
+// 排名更新（推送给订阅者）
+message RankUpdate {
+    int32 rank_type = 1;
+    int32 sub_type = 2;
+    repeated RankEntry entries = 3;
+    int64 update_time = 4;
+    int64 next_refresh_time = 5;  // 下次刷新时间
+}
+
+// 排行榜条目
+message RankEntry {
+    int32 rank = 1;           // 排名
+    int64 user_id = 2;
+    string nickname = 3;
+    int32 avatar_id = 4;
+    int64 score = 5;          // 分数/积分
+    int32 level = 6;
+    string guild_name = 7;    // 公会名（可选）
+    int32 rank_change = 8;    // 排名变化：正数上升，负数下降，0不变
+}
+
+// 排名变化通知（推送给相关玩家）
+message RankChangeNotify {
+    int32 rank_type = 1;
+    int32 sub_type = 2;
+    int64 user_id = 3;
+    int32 old_rank = 4;
+    int32 new_rank = 5;
+    int64 old_score = 6;
+    int64 new_score = 7;
+    string reason = 8;        // 变化原因
+}

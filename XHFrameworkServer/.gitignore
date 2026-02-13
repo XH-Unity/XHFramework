@@ -1,0 +1,11 @@
+# This .gitignore file should be placed at the root of your Unity project directory
+#
+# Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
+#
+
+# 忽略 html 文件夹内的所有内容（但保留 html 文件夹本身）
+nginx-1.28.0/html/*
+# 不忽略 html 文件夹内的 .gitkeep 文件（用于保持文件夹结构）
+!nginx-1.28.0/html/.gitkeep
+
+

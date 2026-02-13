@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package Network;
+option csharp_namespace = "Network.Proto";
+
+// UDP 消息ID定义
+// UDP 主要用于实时性要求高、允许丢包的场景
+// 消息ID规则：模块ID * 100 + 消息序号
+// 模块划分：
+//   1xx - 移动同步
+//   2xx - 状态同步
+//   3xx - 战斗同步
+//   4xx - 语音/视频
+
+enum UdpMessageId {
+    UDP_MSG_NONE = 0;
+
+    // ========== 移动同步 (1xx) ==========
+    UDP_MOVE_SYNC = 101;              // 移动同步
+    UDP_MOVE_BROADCAST = 102;         // 移动广播
+    UDP_POSITION_CORRECT = 103;       // 位置校正
+    UDP_TELEPORT_NOTIFY = 104;        // 瞬移通知
+    UDP_JUMP_SYNC = 105;              // 跳跃同步
+    UDP_VELOCITY_SYNC = 106;          // 速度同步
+
+    // ========== 状态同步 (2xx) ==========
+    UDP_STATE_SYNC = 201;             // 状态同步
+    UDP_STATE_BROADCAST = 202;        // 状态广播
+    UDP_ANIMATION_SYNC = 203;         // 动画同步
+    UDP_TRANSFORM_SNAPSHOT = 204;     // Transform快照
+    UDP_INTERPOLATION_DATA = 205;     // 插值数据
+
+    // ========== 战斗同步 (3xx) ==========
+    UDP_ATTACK_SYNC = 301;            // 攻击同步
+    UDP_HIT_CONFIRM = 302;            // 命中确认
+    UDP_PROJECTILE_SYNC = 303;        // 弹道同步
+    UDP_AOE_SYNC = 304;               // AOE同步
+    UDP_COMBAT_EVENT = 305;           // 战斗事件
+
+    // ========== 语音/视频 (4xx) ==========
+    UDP_VOICE_DATA = 401;             // 语音数据
+    UDP_VOICE_START = 402;            // 开始语音
+    UDP_VOICE_END = 403;              // 结束语音
+}

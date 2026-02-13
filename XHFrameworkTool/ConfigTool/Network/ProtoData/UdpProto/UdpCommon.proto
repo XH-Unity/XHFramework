@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package Network;
+option csharp_namespace = "Network.Proto";
+
+// UDP 向量2D（精简版）
+message UdpVector2 {
+    float x = 1;
+    float y = 2;
+}
+
+// UDP 向量3D（精简版）
+message UdpVector3 {
+    float x = 1;
+    float y = 2;
+    float z = 3;
+}
+
+// UDP 四元数（用于旋转）
+message UdpQuaternion {
+    float x = 1;
+    float y = 2;
+    float z = 3;
+    float w = 4;
+}
+
+// UDP 包头（用于序列号和时间戳）
+message UdpHeader {
+    uint32 sequence = 1;      // 序列号
+    uint32 ack = 2;           // 确认号
+    uint32 ack_bits = 3;      // 确认位图（用于确认最近32个包）
+    int64 timestamp = 4;      // 客户端时间戳
+    int64 server_time = 5;    // 服务器时间戳
+}

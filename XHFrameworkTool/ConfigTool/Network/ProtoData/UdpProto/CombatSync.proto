@@ -1,0 +1,68 @@
+syntax = "proto3";
+
+package Network;
+option csharp_namespace = "Network.Proto";
+
+import "UdpCommon.proto";
+
+// 攻击同步（实时战斗）
+message AttackSync {
+    UdpHeader header = 1;
+    int64 attacker_id = 2;
+    int64 target_id = 3;
+    int32 attack_id = 4;
+    UdpVector3 attack_position = 5;
+    UdpVector3 attack_direction = 6;
+    int32 attack_type = 7;
+    int64 attack_time = 8;
+}
+
+// 命中确认
+message HitConfirm {
+    UdpHeader header = 1;
+    int64 attacker_id = 2;
+    int64 target_id = 3;
+    int32 attack_id = 4;
+    bool is_hit = 5;
+    int32 damage = 6;
+    UdpVector3 hit_point = 7;
+    UdpVector3 hit_normal = 8;
+    int32 hit_type = 9;  // 0: normal, 1: critical, 2: block, 3: dodge
+}
+
+// 弹道同步
+message ProjectileSync {
+    UdpHeader header = 1;
+    int64 projectile_id = 2;
+    int64 owner_id = 3;
+    int32 projectile_type = 4;
+    UdpVector3 position = 5;
+    UdpVector3 velocity = 6;
+    UdpQuaternion rotation = 7;
+    float lifetime = 8;
+    int64 target_id = 9;  // 追踪目标（可选）
+}
+
+// AOE同步
+message AoeSync {
+    UdpHeader header = 1;
+    int64 aoe_id = 2;
+    int64 caster_id = 3;
+    int32 aoe_type = 4;
+    UdpVector3 center = 5;
+    float radius = 6;
+    float duration = 7;
+    int32 tick_interval = 8;  // 伤害间隔（毫秒）
+    repeated int64 affected_ids = 9;  // 受影响的实体ID
+}
+
+// 战斗事件（通用战斗事件同步）
+message CombatEvent {
+    UdpHeader header = 1;
+    int32 event_type = 2;
+    int64 source_id = 3;
+    int64 target_id = 4;
+    UdpVector3 position = 5;
+    int32 value = 6;
+    bytes extra_data = 7;
+}

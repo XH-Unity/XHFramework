@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+package Network;
+option csharp_namespace = "Network.Proto";
+
+import "Common.proto";
+
+// 登录请求
+message LoginRequest {
+    string username = 1;
+    string password = 2;
+    string device_id = 3;
+    string platform = 4;  // "iOS", "Android", "Windows"
+}
+
+// 登录响应
+message LoginResponse {
+    ResponseCode code = 1;
+    string message = 2;
+    int64 user_id = 3;
+    string token = 4;
+    int64 expire_time = 5;
+    PlayerInfo player_info = 6;
+}
+
+// 玩家基本信息
+message PlayerInfo {
+    int64 user_id = 1;
+    string nickname = 2;
+    int32 level = 3;
+    int64 exp = 4;
+    int32 avatar_id = 5;
+    int64 create_time = 6;
+    int64 last_login_time = 7;
+}
+
+// 注册请求
+message RegisterRequest {
+    string username = 1;
+    string password = 2;
+    string nickname = 3;
+    string email = 4;
+}
+
+// 注册响应
+message RegisterResponse {
+    ResponseCode code = 1;
+    string message = 2;
+    int64 user_id = 3;
+}
+
+// 登出请求
+message LogoutRequest {
+    int64 user_id = 1;
+    string token = 2;
+}
+
+// 登出响应
+message LogoutResponse {
+    ResponseCode code = 1;
+    string message = 2;
+}

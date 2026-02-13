@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+package Network;
+option csharp_namespace = "Network.Proto";
+
+import "UdpCommon.proto";
+
+// 移动同步（客户端 -> 服务器）
+message MoveSync {
+    UdpHeader header = 1;
+    int64 user_id = 2;
+    UdpVector3 position = 3;
+    UdpQuaternion rotation = 4;
+    UdpVector3 velocity = 5;
+    uint32 input_flags = 6;   // 输入标志位：W/A/S/D/Jump/Sprint等
+    float move_speed = 7;
+    int32 move_state = 8;     // 0: idle, 1: walk, 2: run, 3: sprint, 4: jump, 5: fall
+}
+
+// 移动广播（服务器 -> 客户端）
+message MoveBroadcastUdp {
+    UdpHeader header = 1;
+    int64 user_id = 2;
+    UdpVector3 position = 3;
+    UdpQuaternion rotation = 4;
+    UdpVector3 velocity = 5;
+    int32 move_state = 6;
+}
+
+// 位置校正（服务器 -> 客户端）
+message PositionCorrect {
+    UdpHeader header = 1;
+    int64 user_id = 2;
+    UdpVector3 correct_position = 3;
+    UdpQuaternion correct_rotation = 4;
+    uint32 corrected_sequence = 5;  // 被校正的输入序列号
+    string reason = 6;              // 校正原因
+}
+
+// 瞬移通知
+message TeleportNotify {
+    UdpHeader header = 1;
+    int64 user_id = 2;
+    UdpVector3 target_position = 3;
+    UdpQuaternion target_rotation = 4;
+    int32 teleport_type = 5;  // 0: 技能, 1: 传送点, 2: GM命令
+}
+
+// 跳跃同步
+message JumpSync {
+    UdpHeader header = 1;
+    int64 user_id = 2;
+    UdpVector3 start_position = 3;
+    UdpVector3 velocity = 4;
+    float jump_force = 5;
+    int32 jump_count = 6;  // 跳跃次数（用于多段跳）
+}
+
+// 速度同步
+message VelocitySync {
+    UdpHeader header = 1;
+    int64 user_id = 2;
+    UdpVector3 velocity = 3;
+    UdpVector3 acceleration = 4;
+    float max_speed = 5;
+}

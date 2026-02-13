@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package Network;
+option csharp_namespace = "Network.Proto";
+
+// WebSocket 消息ID定义
+// WebSocket 主要用于实时推送、长连接通知等场景
+// 消息ID规则：模块ID * 100 + 消息序号
+// 模块划分：
+//   1xx - 连接管理
+//   2xx - 实时推送
+//   3xx - 匹配系统
+//   4xx - 排行榜
+//   5xx - 活动系统
+
+enum WsMessageId {
+    WS_MSG_NONE = 0;
+
+    // ========== 连接管理 (1xx) ==========
+    WS_CONNECT_REQUEST = 101;         // 连接请求
+    WS_CONNECT_RESPONSE = 102;        // 连接响应
+    WS_DISCONNECT_NOTIFY = 103;       // 断开通知
+    WS_PING = 104;                    // Ping
+    WS_PONG = 105;                    // Pong
+    WS_AUTH_REQUEST = 106;            // 认证请求
+    WS_AUTH_RESPONSE = 107;           // 认证响应
+
+    // ========== 实时推送 (2xx) ==========
+    WS_PUSH_NOTIFY = 201;             // 通用推送通知
+    WS_MAIL_NOTIFY = 202;             // 邮件通知
+    WS_REWARD_NOTIFY = 203;           // 奖励通知
+    WS_SYSTEM_ANNOUNCE = 204;         // 系统公告
+    WS_FRIEND_ONLINE = 205;           // 好友上线通知
+    WS_FRIEND_OFFLINE = 206;          // 好友下线通知
+    WS_GUILD_NOTIFY = 207;            // 公会通知
+
+    // ========== 匹配系统 (3xx) ==========
+    WS_MATCH_REQUEST = 301;           // 匹配请求
+    WS_MATCH_CANCEL = 302;            // 取消匹配
+    WS_MATCH_PROGRESS = 303;          // 匹配进度
+    WS_MATCH_SUCCESS = 304;           // 匹配成功
+    WS_MATCH_FAILED = 305;            // 匹配失败
+    WS_MATCH_CONFIRM = 306;           // 匹配确认
+    WS_MATCH_READY = 307;             // 准备就绪
+
+    // ========== 排行榜 (4xx) ==========
+    WS_RANK_UPDATE = 401;             // 排名更新
+    WS_RANK_SUBSCRIBE = 402;          // 订阅排行榜
+    WS_RANK_UNSUBSCRIBE = 403;        // 取消订阅
+    WS_RANK_CHANGE_NOTIFY = 404;      // 排名变化通知
+
+    // ========== 活动系统 (5xx) ==========
+    WS_ACTIVITY_START = 501;          // 活动开始
+    WS_ACTIVITY_END = 502;            // 活动结束
+    WS_ACTIVITY_UPDATE = 503;         // 活动更新
+    WS_ACTIVITY_REWARD = 504;         // 活动奖励
+    WS_RED_DOT_UPDATE = 505;          // 红点更新
+}

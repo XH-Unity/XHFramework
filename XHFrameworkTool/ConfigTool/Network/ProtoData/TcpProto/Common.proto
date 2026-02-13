@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package Network;
+option csharp_namespace = "Network.Proto";
+
+// 通用响应状态码
+enum ResponseCode {
+    SUCCESS = 0;
+    FAILED = 1;
+    INVALID_PARAM = 2;
+    NOT_FOUND = 3;
+    UNAUTHORIZED = 4;
+    SERVER_ERROR = 5;
+}
+
+// 通用响应消息
+message CommonResponse {
+    ResponseCode code = 1;
+    string message = 2;
+}
+
+// 向量2D
+message Vector2D {
+    float x = 1;
+    float y = 2;
+}
+
+// 向量3D
+message Vector3D {
+    float x = 1;
+    float y = 2;
+    float z = 3;
+}

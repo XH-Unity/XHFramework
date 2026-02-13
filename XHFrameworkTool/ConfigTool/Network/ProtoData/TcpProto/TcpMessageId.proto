@@ -1,0 +1,70 @@
+syntax = "proto3";
+
+package Network;
+option csharp_namespace = "Network.Proto";
+
+// TCP 消息ID定义
+// 消息ID规则：模块ID * 1000 + 消息序号
+// 模块划分：
+//   1xxx - 登录模块
+//   2xxx - 游戏核心模块
+//   3xxx - 背包/道具模块
+//   4xxx - 社交模块
+//   5xxx - 战斗模块
+
+enum TcpMessageId {
+    TCP_MSG_NONE = 0;
+
+    // ========== 登录模块 (1xxx) ==========
+    TCP_LOGIN_REQUEST = 1001;
+    TCP_LOGIN_RESPONSE = 1002;
+    TCP_REGISTER_REQUEST = 1003;
+    TCP_REGISTER_RESPONSE = 1004;
+    TCP_LOGOUT_REQUEST = 1005;
+    TCP_LOGOUT_RESPONSE = 1006;
+    TCP_RECONNECT_REQUEST = 1007;
+    TCP_RECONNECT_RESPONSE = 1008;
+    TCP_KICK_NOTIFY = 1009;
+
+    // ========== 游戏核心模块 (2xxx) ==========
+    TCP_HEARTBEAT_REQUEST = 2001;
+    TCP_HEARTBEAT_RESPONSE = 2002;
+    TCP_ENTER_SCENE_REQUEST = 2003;
+    TCP_ENTER_SCENE_RESPONSE = 2004;
+    TCP_LEAVE_SCENE_REQUEST = 2005;
+    TCP_LEAVE_SCENE_RESPONSE = 2006;
+    TCP_PLAYER_ENTER_BROADCAST = 2007;
+    TCP_PLAYER_LEAVE_BROADCAST = 2008;
+    TCP_SCENE_INFO_REQUEST = 2009;
+    TCP_SCENE_INFO_RESPONSE = 2010;
+
+    // ========== 背包/道具模块 (3xxx) ==========
+    TCP_BAG_INFO_REQUEST = 3001;
+    TCP_BAG_INFO_RESPONSE = 3002;
+    TCP_USE_ITEM_REQUEST = 3003;
+    TCP_USE_ITEM_RESPONSE = 3004;
+    TCP_DROP_ITEM_REQUEST = 3005;
+    TCP_DROP_ITEM_RESPONSE = 3006;
+    TCP_ITEM_CHANGE_NOTIFY = 3007;
+
+    // ========== 社交模块 (4xxx) ==========
+    TCP_CHAT_REQUEST = 4001;
+    TCP_CHAT_BROADCAST = 4002;
+    TCP_FRIEND_LIST_REQUEST = 4003;
+    TCP_FRIEND_LIST_RESPONSE = 4004;
+    TCP_ADD_FRIEND_REQUEST = 4005;
+    TCP_ADD_FRIEND_RESPONSE = 4006;
+    TCP_REMOVE_FRIEND_REQUEST = 4007;
+    TCP_REMOVE_FRIEND_RESPONSE = 4008;
+
+    // ========== 战斗模块 (5xxx) ==========
+    TCP_ATTACK_REQUEST = 5001;
+    TCP_ATTACK_RESPONSE = 5002;
+    TCP_DAMAGE_NOTIFY = 5003;
+    TCP_SKILL_REQUEST = 5004;
+    TCP_SKILL_RESPONSE = 5005;
+    TCP_BUFF_NOTIFY = 5006;
+    TCP_DEATH_NOTIFY = 5007;
+    TCP_REVIVE_REQUEST = 5008;
+    TCP_REVIVE_RESPONSE = 5009;
+}

@@ -1,0 +1,76 @@
+syntax = "proto3";
+
+package Network;
+option csharp_namespace = "Network.Proto";
+
+// WebSocket 响应状态码
+enum WsResponseCode {
+    WS_SUCCESS = 0;
+    WS_FAILED = 1;
+    WS_INVALID_TOKEN = 2;
+    WS_CONNECTION_EXPIRED = 3;
+    WS_SERVER_BUSY = 4;
+    WS_RATE_LIMITED = 5;
+}
+
+// WebSocket 消息包装器
+message WsMessage {
+    int32 msg_id = 1;         // 消息ID
+    int64 timestamp = 2;      // 时间戳
+    string request_id = 3;    // 请求ID（用于请求-响应匹配）
+    bytes payload = 4;        // 消息体
+}
+
+// 连接请求
+message WsConnectRequest {
+    string token = 1;
+    string device_id = 2;
+    string client_version = 3;
+    string platform = 4;
+}
+
+// 连接响应
+message WsConnectResponse {
+    WsResponseCode code = 1;
+    string message = 2;
+    string session_id = 3;
+    int64 server_time = 4;
+    int32 heartbeat_interval = 5;  // 心跳间隔（秒）
+}
+
+// 断开连接通知
+message WsDisconnectNotify {
+    int32 reason = 1;  // 0: 正常断开, 1: 超时, 2: 被踢, 3: 服务器维护
+    string message = 2;
+}
+
+// Ping
+message WsPing {
+    int64 client_time = 1;
+}
+
+// Pong
+message WsPong {
+    int64 client_time = 1;
+    int64 server_time = 2;
+}
+
+// 认证请求
+message WsAuthRequest {
+    int64 user_id = 1;
+    string token = 2;
+}
+
+// 认证响应
+message WsAuthResponse {
+    WsResponseCode code = 1;
+    string message = 2;
+    int64 expire_time = 3;
+}
+
+// 奖励道具（公共类型）
+message WsRewardItem {
+    int32 item_id = 1;
+    int32 count = 2;
+    int32 item_type = 3;      // 0: 道具, 1: 货币, 2: 经验
+}

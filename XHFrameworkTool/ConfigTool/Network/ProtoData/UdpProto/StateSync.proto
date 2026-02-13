@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+package Network;
+option csharp_namespace = "Network.Proto";
+
+import "UdpCommon.proto";
+
+// 状态同步（客户端 -> 服务器）
+message StateSync {
+    UdpHeader header = 1;
+    int64 user_id = 2;
+    int32 state_type = 3;     // 状态类型
+    int32 state_value = 4;    // 状态值
+    bytes state_data = 5;     // 额外状态数据
+}
+
+// 状态广播（服务器 -> 客户端）
+message StateBroadcast {
+    UdpHeader header = 1;
+    int64 user_id = 2;
+    int32 state_type = 3;
+    int32 state_value = 4;
+    bytes state_data = 5;
+}
+
+// 动画同步
+message AnimationSync {
+    UdpHeader header = 1;
+    int64 user_id = 2;
+    int32 anim_hash = 3;          // 动画状态哈希
+    float normalized_time = 4;    // 归一化时间
+    int32 layer = 5;              // 动画层
+    float speed = 6;              // 播放速度
+    repeated AnimParam params = 7; // 动画参数
+}
+
+// 动画参数
+message AnimParam {
+    string name = 1;
+    int32 type = 2;    // 0: int, 1: float, 2: bool, 3: trigger
+    int32 int_value = 3;
+    float float_value = 4;
+    bool bool_value = 5;
+}
+
+// Transform快照（用于状态同步）
+message TransformSnapshot {
+    UdpHeader header = 1;
+    int64 entity_id = 2;
+    UdpVector3 position = 3;
+    UdpQuaternion rotation = 4;
+    UdpVector3 scale = 5;
+    UdpVector3 velocity = 6;
+    UdpVector3 angular_velocity = 7;
+}
+
+// 插值数据（用于平滑同步）
+message InterpolationData {
+    UdpHeader header = 1;
+    int64 entity_id = 2;
+    repeated TransformSnapshot snapshots = 3;  // 多个快照用于插值
+    float interpolation_time = 4;              // 插值时间
+}

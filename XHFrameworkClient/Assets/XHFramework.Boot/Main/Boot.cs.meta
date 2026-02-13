@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: b31814272240d9543b45c70cfb8c2d23
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - AOTGlobalConfig: {fileID: 11400000, guid: 4d4de6e6d74539d4bbde13c24f2817f8, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

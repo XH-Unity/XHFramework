@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(findstr \"8084\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 877df15d974e5154b91f5e4237e94f9b, type: 3}
+  m_Name: NetworkToolSettings
+  m_EditorClassIdentifier: 
+  protocPath: ../XHFrameworkTool/ConfigTool/Network/protoc-3.25.1-windows-x86_64.exe
+  tcpProtoSourcePath: ../XHFrameworkTool/ConfigTool/Network/ProtoData/TcpProto
+  tcpProtoOutputPath: Assets/XHFramework.Game/HotUpdateScripts/Network/TcpMessage
+  udpProtoSourcePath: ../XHFrameworkTool/ConfigTool/Network/ProtoData/UdpProto
+  udpProtoOutputPath: Assets/XHFramework.Game/HotUpdateScripts/Network/UdpMessage
+  webSocketProtoSourcePath: ../XHFrameworkTool/ConfigTool/Network/ProtoData/WebSocketProto
+  webSocketProtoOutputPath: Assets/XHFramework.Game/HotUpdateScripts/Network/WebSocketMessage

@@ -1,0 +1,87 @@
+syntax = "proto3";
+
+package Network;
+option csharp_namespace = "Network.Proto";
+
+import "Common.proto";
+
+// 玩家移动请求
+message MoveRequest {
+    int64 user_id = 1;
+    Vector3D position = 2;
+    Vector3D rotation = 3;
+    float speed = 4;
+    int64 timestamp = 5;
+}
+
+// 玩家移动广播
+message MoveBroadcast {
+    int64 user_id = 1;
+    Vector3D position = 2;
+    Vector3D rotation = 3;
+    float speed = 4;
+    int64 server_time = 5;
+}
+
+// 进入场景请求
+message EnterSceneRequest {
+    int64 user_id = 1;
+    int32 scene_id = 2;
+}
+
+// 进入场景响应
+message EnterSceneResponse {
+    ResponseCode code = 1;
+    string message = 2;
+    int32 scene_id = 3;
+    Vector3D spawn_position = 4;
+    repeated PlayerState players_in_scene = 5;
+}
+
+// 玩家状态
+message PlayerState {
+    int64 user_id = 1;
+    string nickname = 2;
+    Vector3D position = 3;
+    Vector3D rotation = 4;
+    int32 hp = 5;
+    int32 max_hp = 6;
+    int32 state = 7;  // 0: idle, 1: moving, 2: attacking, 3: dead
+}
+
+// 玩家进入场景广播
+message PlayerEnterBroadcast {
+    PlayerState player = 1;
+}
+
+// 玩家离开场景广播
+message PlayerLeaveBroadcast {
+    int64 user_id = 1;
+}
+
+// 聊天消息请求
+message ChatRequest {
+    int64 user_id = 1;
+    int32 channel = 2;  // 0: world, 1: team, 2: private
+    string content = 3;
+    int64 target_user_id = 4;  // for private chat
+}
+
+// 聊天消息广播
+message ChatBroadcast {
+    int64 sender_id = 1;
+    string sender_name = 2;
+    int32 channel = 3;
+    string content = 4;
+    int64 timestamp = 5;
+}
+
+// 心跳请求
+message HeartbeatRequest {
+    int64 client_time = 1;
+}
+
+// 心跳响应
+message HeartbeatResponse {
+    int64 server_time = 1;
+}
