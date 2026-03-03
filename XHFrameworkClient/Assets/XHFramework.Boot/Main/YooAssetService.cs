@@ -4,12 +4,13 @@ using System.IO;
 using UnityEngine;
 using YooAsset;
 using Cysharp.Threading.Tasks;
+using XHFramework.Boot;
 using XHFramework.Core;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 
-namespace XHFramework.Boot
+namespace XFramework.Boot
 {
     public class YooAssetService
     {
@@ -61,28 +62,17 @@ namespace XHFramework.Boot
                 // 初始化资源包
                 if (!await InitializePackage())
                     return false;
-
-                var playMode = GetPlayMode();
-
-                // 离线模式和编辑器模拟模式不需要网络更新，直接完成
-                if (playMode == EPlayMode.OfflinePlayMode || playMode == EPlayMode.EditorSimulateMode)
-                {
-                    Log.Info($"{playMode} 模式，跳过网络更新流程");
-                    OnStepChange?.Invoke("YooAsset更新完成");
-                    FinishUpdate();
-                    Log.Info("YooAsset初始化和更新流程全部完成");
-                    return true;
-                }
-
-                // 联机模式：请求版本、更新清单、下载资源
+                // 请求资源版本
                 if (!await RequestPackageVersion())
                     return false;
+                // 更新资源清单
                 if (!await UpdatePackageManifest())
                     return false;
+                // 检查并下载更新文件
                 if (!await CheckAndDownloadFiles())
                     return false;
+                // 清理缓存文件
                 await ClearCacheFiles();
-
                 OnStepChange?.Invoke("YooAsset更新完成");
                 FinishUpdate();
                 Log.Info("YooAsset初始化和更新流程全部完成");

@@ -1,4 +1,5 @@
 using UnityEngine;
+using XFramework.Boot;
 using XHFramework.Core;
 
 namespace XHFramework.Boot
